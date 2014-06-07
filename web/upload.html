@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+	<head>
+		<title>HW1</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script>
+		
+		function get_jsonData() {
+			var options = document.getElementById('options').value;
+			var argument = options.split(" ").join('+');
+			// alert(argument);
+			$.ajax({
+			  url: "cgi-bin/test.cgi?" + argument,
+			  type: "GET",
+				// contentType: "application/json; charset=utf-8"
+				// data: "-k+category,viewCount",
+			  dataType: "json",
+			  success: function(JData) {
+					
+					// var jjjj = JSON.parse(JData);
+			    // alert(jjjj.length);
+					var i = 0;
+					//這裡改用.each這個函式來取出JData裡的物件
+					$.each(JData.records, function() {
+					  //呼叫方式也稍微改變了一下，意思等同於上述的的JData[i]["idx_Key"]
+					  $("#JSON_table").append("<tr>" +
+					                          "<td>" + JData.records[i].category   + "</td>" +
+					                          "<td>" + JData.records[i].viewCount    + "</td>" +
+					                          "</tr>");
+					  i++;
+					});
+			  },
+
+			  error: function(xhr) {
+			    alert("ERROR!!!" + xhr.status);
+			  }
+			});
+		}
+		
+			$( document ).ready(function() {
+				function processing() {
+					var options = document.getElementById('options').value;
+					// alert(options+"+");
+					var send = options.split(" ").join('+');
+						alert(send);
+				}
+				
+				
+			});
+		</script>
+	</head>
+	<body>
+		上傳一個檔案
+		<!--  上傳檔案的表單檔案會傳給upload.php的程式作處理，使用的是POST的方式，上傳檔案的大小被限制在php.ini檔案裡面，預設是2MB資料型態為multipart/form-data(多部分/格式-數據)-->
+		<form ACTION="upload.php" METHOD="post" ENCTYPE="multipart/form-data">
+			請輸入檔名:
+			<!--  表單的欄位型態為file變數名稱為userfile -->
+			<input TYPE="file" NAME="userfile" SIZE="36"><br>
+			<!-- 傳送 -->
+			<input TYPE="submit" VALUE="遞送"><br>
+		</form>
+		<br><br><br><br>
+		<form ACTION="cgi-bin/test.cgi" METHOD="get">
+			請輸入指令:
+			<input type="text" id="options" ><br>
+			<br>
+		</form>
+		
+		<button id="sendBtn" onclick="get_jsonData()">Try it</button>
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div id="JSON_table">
+	</body>
+</html>

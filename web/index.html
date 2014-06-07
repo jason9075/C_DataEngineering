@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+<head>
+	<meta charset="UTF-8">
+	<!-- Google Fonts -->
+  	<link href='http://fonts.googleapis.com/css?family=Cabin|Poiret+One|Montserrat' rel='stylesheet' type='text/css'>
+	<title>Data Engineering HW2</title>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+  	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">Data Engineering</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="navbar-collapse-main">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#home">Home</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>    
+
+	<div id="home" class="home">
+	  <div class="text-vcenter">  
+	    <h1>Data Engineering HW2</h1>
+	    <h3>As professor said, "UI is important."</h3>
+	    <!-- Command Line: -->
+	    <div class="container">
+	    	<div class="row">
+		      <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+		        <div class="navbar-form" role="search">
+			        <div class="form-group">
+			          <input id="options" type="text" class="form-control" placeholder="sort command">
+			        </div>
+			        <button id="sendBtn" class="btn btn-warning" onclick="get_jsonData(1)" >Submit</button>
+		      	</div>
+		      </div>
+		    </div>
+	      </div>
+	  </div>
+	</div>
+		<!-- <form ACTION="upload.php" METHOD="post" ENCTYPE="multipart/form-data">
+			上傳檔案:
+			<input TYPE="file" NAME="userfile" SIZE="36">
+			<input TYPE="submit" VALUE="Upload">
+		</form> -->
+		<!-- <input type="text" id="options" value="-r id" size = "50" />
+		<button id="sendBtn" onclick="get_jsonData(1)">Send</button> <br> -->
+	<!-- 指令：
+		<div class="css_table">
+			<div class="css_tr">
+				<div class="css_td"> -r "pattern" </div>
+				<div class="css_td"> A record start from the assigned pattern </div>
+			</div>
+			<div class="css_tr">
+				<div class="css_td"> -i </div>
+				<div class="css_td"> increasing order (default: decreasing order) </div>
+			</div>
+			<div class="css_tr">
+				<div class="css_td"> -k "primary pattern","secondary pattern" </div>
+				<div class="css_td"> Assign Key </div>
+			</div>
+			<div class="css_tr">
+				<div class="css_td"> -c </div>
+				<div class="css_td"> Case insenitive (default: case sensitive) </div>
+			</div>
+			<div class="css_tr">
+				<div class="css_td"> -s </div>
+				<div class="css_td"> Sort by stable (default: non-stable) </div>
+			</div>
+			<div class="css_tr">
+				<div class="css_td"> -n </div>
+				<div class="css_td"> Numerical  (default: string) </div>
+			</div>
+    	</div>
+		<p>
+			pattern: id, published, updated, title, content, author, keyword, favoriteCount, viewCount, duration, category
+    	</p> 
+ 	-->
+    
+	<div id="result" class="css_table">
+		<div class="container">
+			<div id="JSON_table"></div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 text-center">
+					<ul class="pagination" id="paginationUl"> </ul>	
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div id="blanket" onclick="popup('popUpDiv')" style="display:none;"> </div>
+<div id="popUpDiv" style="display:none;">
+	<iframe id="popYoutube" width="672" height="378" src="http://www.youtube.com/embed/Mb9AaqSPaCc" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<!-- footer -->
+<footer>
+  <div class="container">
+    <p class="text-right">COPYRIGHT © 2014 Jason Kuan</p>
+  </div>
+</footer>
+<!-- /footer -->
+
+</body>
+</html>
