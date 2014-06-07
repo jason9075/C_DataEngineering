@@ -3,7 +3,8 @@ var jsonArray = new Array(); // get json and store into array
 
 function get_jsonData(page) {
 	var options = document.getElementById('options').value;
-	var argument = options.split(" ").join('+');
+	// var argument = options.split(" ").join('+');		//for sorting
+	var argument = "-r+" + options;
 	argument += "+-p+" + page;
 	$.ajax({
 	  url: "cgi-bin/sort.cgi?" + argument,
